@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}EmailFlow - Monitor{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8 mt-8">
+    <!-- Admin Notice Banner -->
+    <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6 rounded shadow-md" role="alert">
+        <div class="flex">
+            <div class="py-1"><svg class="fill-current h-6 w-6 text-yellow-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+            <div>
+                <p class="font-bold">Admin Area</p>
+                <p class="text-sm">This monitoring page is for administrative purposes and would normally be hidden from public view.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Description -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Email Monitoring Service</h2>
+        
+        <div class="space-y-6 text-gray-600">
+            <div>
+                <h3 class="text-lg font-medium text-gray-800 mb-2">How It Works</h3>
+                <p>EmailFlow continuously monitors your Gmail inbox for new messages, even when you're not actively using the application. The system uses OAuth 2.0 with refresh tokens to maintain secure access to your Gmail account without requiring you to log in repeatedly.</p>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-medium text-gray-800 mb-2">Background Processing</h3>
+                <p>Our system runs in the background for all registered users, checking for new emails every 10 seconds. This is accomplished through a dedicated server-side thread that:</p>
+                <ul class="list-disc pl-6 mt-2 space-y-1">
+                    <li>Loads all registered users from the database</li>
+                    <li>Checks each user's Gmail inbox for new messages</li>
+                    <li>Uses Gmail's history API to efficiently detect changes</li>
+                    <li>Processes only new messages to minimize resource usage</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-medium text-gray-800 mb-2">AI-Powered Analysis</h3>
+                <p>Each email is analyzed by our AI system which scores its importance on a scale of 1-10. The AI considers multiple factors:</p>
+                <ul class="list-disc pl-6 mt-2 space-y-1">
+                    <li>Sender identity and relationship to you</li>
+                    <li>Subject line urgency and content</li>
+                    <li>Message content and context</li>
+                    <li>Time sensitivity of the information</li>
+                    <li>Required actions or responses</li>
+                </ul>
+                <p class="mt-2">Emails with a score of 7 or higher trigger SMS notifications to ensure you never miss critical communications.</p>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-medium text-gray-800 mb-2">SMS Notifications</h3>
+                <p>When a high-priority email is detected, the system automatically sends an SMS notification to your registered phone number. These notifications include:</p>
+                <ul class="list-disc pl-6 mt-2 space-y-1">
+                    <li>The sender's name or email address</li>
+                    <li>The subject line of the email</li>
+                    <li>The importance score assigned by the AI</li>
+                </ul>
+                <p class="mt-2">This allows you to quickly assess whether immediate attention is required without having to check your email client.</p>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-medium text-gray-800 mb-2">Current Status</h3>
+                <p>The monitoring service is <span class="text-green-600 font-bold">active</span> and running for all users in the database. The system is designed to be resilient, automatically recovering from temporary failures and maintaining continuous monitoring. There has been little effort put into making this page look "pretty" as its not ment to be seen by users, but for now it can serve to help explain the service.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
